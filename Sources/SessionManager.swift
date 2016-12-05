@@ -1,8 +1,8 @@
 //
 //  SessionManager.swift
-//  PerfectTurnstilePostgreSQL
+//  PerfectTurnstileCouchDB
 //
-//  Created by Jonathan Guthrie on 2016-10-19.
+//  Created by Jonathan Guthrie on 2016-12-05.
 //
 //
 

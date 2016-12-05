@@ -1,8 +1,8 @@
 //
 //  Account.swift
-//  PerfectTurnstilePostgreSQL
+//  PerfectTurnstileCouchDB
 //
-//  Created by Jonathan Guthrie on 2016-10-17.
+//  Created by Jonathan Guthrie on 2016-12-05.
 //
 //
 
@@ -36,14 +36,14 @@ open class AuthAccount : CouchDBStORM, Account {
 
 	// Need to do this because of the nature of Swift's introspection
 	override open func to(_ this: StORMRow) {
-		uniqueID	= this.data["uniqueID"] as! String
-		username	= (this.data["username"] as! String)
-		password	= (this.data["password"] as! String) // lets not read the password!
-		facebookID	= (this.data["facebookID"] as! String)
-		googleID	= (this.data["googleID"] as! String)
-		firstname	= (this.data["firstname"] as! String)
-		lastname	= (this.data["lastname"] as! String)
-		email		= (this.data["email"] as! String)
+		uniqueID	= this.data["_id"] as? String ?? ""
+		username	= this.data["username"] as? String ?? ""
+		password	= this.data["password"] as? String ?? ""
+		facebookID	= this.data["facebookID"] as? String ?? ""
+		googleID	= this.data["googleID"] as? String ?? ""
+		firstname	= this.data["firstname"] as? String ?? ""
+		lastname	= this.data["lastname"] as? String ?? ""
+		email		= this.data["email"] as? String ?? ""
 	}
 
 	public func rows() -> [AuthAccount] {

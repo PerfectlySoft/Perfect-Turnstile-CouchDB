@@ -1,8 +1,8 @@
 //
 //  Tokens.swift
-//  PerfectTurnstilePostgreSQL
+//  PerfectTurnstileCouchDB
 //
-//  Created by Jonathan Guthrie on 2016-10-17.
+//  Created by Jonathan Guthrie on 2016-12-05.
 //
 //
 

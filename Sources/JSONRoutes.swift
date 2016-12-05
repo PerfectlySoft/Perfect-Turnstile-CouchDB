@@ -1,8 +1,8 @@
 //
 //  JSONRoutes.swift
-//  PerfectTurnstilePostgreSQL
+//  PerfectTurnstileCouchDB
 //
-//  Created by Jonathan Guthrie on 2016-10-11.
+//  Created by Jonathan Guthrie on 2016-12-05.
 //
 //
 
