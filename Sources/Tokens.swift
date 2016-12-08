@@ -12,8 +12,6 @@ import Foundation
 import SwiftRandom
 import Turnstile
 
-
-
 open class AccessTokenStore : CouchDBStORM {
 
 	var token: String = ""

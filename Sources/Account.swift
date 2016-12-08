@@ -66,10 +66,8 @@ open class AuthAccount : CouchDBStORM, Account {
 		}
 	}
 	func get(_ un: String, _ pw: String) throws -> AuthAccount {
-//		let cursor = StORMCursor(limit: 1, offset: 0)
 		do {
 			try find(["username":un])
-//				select(whereclause: "username = $1", params: [un], orderby: [], cursor: cursor)
 			if self.results.rows.count == 0 {
 				throw StORMError.noRecordFound
 			}
@@ -88,7 +86,6 @@ open class AuthAccount : CouchDBStORM, Account {
 	func exists(_ un: String) -> Bool {
 		do {
 			try find(["username":un])
-//			try select(whereclause: "username = $1", params: [un], orderby: [], cursor: StORMCursor(limit: 1, offset: 0))
 			if results.rows.count == 1 {
 				return true
 			} else {
