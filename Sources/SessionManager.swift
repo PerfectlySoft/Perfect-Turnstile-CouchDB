@@ -11,9 +11,7 @@ import TurnstileCrypto
 import Turnstile
 import TurnstilePerfect
 
-/**
-SQLiteSessionManager manages sessions via SQLite storage
-*/
+/// PerfectSessionManager manages sessions via SQLite storage
 open class PerfectSessionManager: SessionManager {
 	public let random: Random = URandom()
 
@@ -34,10 +32,7 @@ open class PerfectSessionManager: SessionManager {
 		}
 	}
 
-	/**
-	Creates a Session-backed Account object from the Session store. This only
-	contains the SessionID.
-	*/
+	/// Creates a Session-backed Account object from the Session store. This only contains the SessionID.
 	public func restoreAccount(fromSessionID identifier: String) throws -> Account {
 		let token = AccessTokenStore()
 		do {

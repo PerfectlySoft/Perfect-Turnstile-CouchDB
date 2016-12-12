@@ -12,20 +12,31 @@ import Foundation
 import SwiftRandom
 import Turnstile
 
+/// Class for handling the tokens that are used for JSON API and Web authentication
 open class AccessTokenStore : CouchDBStORM {
 
+	/// The token itself.
 	var token: String = ""
+
+	/// The userid relates to the Users object UniqueID
 	var userid: String = ""
+
+	/// Integer relaing to the created date/time
 	var created: Int = 0
+
+	/// Integer relaing to the last updated date/time
 	var updated: Int = 0
+
+	/// Idle period specified when token was created
 	var idle: Int = 86400 // 86400 seconds = 1 day
 
+	/// Database name used to store Tokens
 	override open func database() -> String {
 		return "tokens"
 	}
 
 
-	// Need to do this because of the nature of Swift's introspection
+	/// Set incoming data from database to object
 	open override func to(_ this: StORMRow) {
 		if let val = this.data["token"]		{ token		= val as! String }
 		if let val = this.data["userid"]	{ userid	= val as! String }
@@ -35,6 +46,7 @@ open class AccessTokenStore : CouchDBStORM {
 
 	}
 
+	/// Iterate through rows and set to object data
 	func rows() -> [AccessTokenStore] {
 		var rows = [AccessTokenStore]()
 		for i in 0..<self.results.rows.count {
@@ -50,8 +62,8 @@ open class AccessTokenStore : CouchDBStORM {
 		return Int(Date.timeIntervalSinceReferenceDate)
 	}
 
-	// checks to see if the token is active
-	// upticks the updated int to keep it alive.
+	/// Checks to see if the token is active
+	/// Upticks the updated int to keep it alive.
 	public func check() -> Bool? {
 		if (updated + idle) < now() { return false } else {
 			do {
@@ -64,6 +76,7 @@ open class AccessTokenStore : CouchDBStORM {
 		}
 	}
 
+	/// Triggers creating a new token.
 	public func new(_ u: String) -> String {
 		let rand = URandom()
 		token = rand.secureToken
