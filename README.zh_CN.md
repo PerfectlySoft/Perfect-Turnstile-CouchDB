@@ -48,9 +48,8 @@
 
 ``` swift
 .Package(
-	url: "https://github.com/PerfectlySoft/Perfect-Turnstile-PostgreSQL.git",
-	majorVersion: 0, minor: 0
-	)
+	url: "https://github.com/PerfectlySoft/Perfect-Turnstile-CouchDB.git",
+	majorVersion: 0)
 ```
 
 ## 增加 JSON API 路由入口点
