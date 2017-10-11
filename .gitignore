@@ -68,3 +68,5 @@ Package.swift.orig
 buildlinux
 /.packages_lin
 /.build_lin
+Package.resolved
+PADockerfile_build
